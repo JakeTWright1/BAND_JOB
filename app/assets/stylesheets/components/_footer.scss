@@ -1,0 +1,17 @@
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  background-color: #f97676;
+  padding: 20px;
+  text-align: center;
+
+  a {
+    color: #333;
+    text-decoration: none;
+
+    &:hover {
+      color: #000;
+    }
+  }
+}
