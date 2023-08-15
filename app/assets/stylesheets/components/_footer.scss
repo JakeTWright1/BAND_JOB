@@ -1,10 +1,11 @@
 footer {
-  position: fixed;
+  position: relative;
   bottom: 0;
   width: 100%;
   background-color: #f97676;
   padding: 20px;
   text-align: center;
+  margin-top: 16px;
 
   a {
     color: #333;
