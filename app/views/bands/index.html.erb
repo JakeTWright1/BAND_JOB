@@ -1,8 +1,20 @@
 <!--Render Navbar Here -->
 <div class="container">
-  <h1 class="text-center">BandJob Homepage</h1>
+    <h1 class="text-center">BandJob Listings</h1>
 
   <!-- Page Content Here -->
+  <div class="d-flex flex-column">
+     <% @bands.each do |band| %>
+     <div class="card-product">
+      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+      <div class="d-flex flex-column">
+        <div class="p-2 card-product-infos"><h2><%= band.name %></h2></div>
+        <div>£<%= band.price_per_night %> per night</div>
+      </div>
+    </div>
+     <% end %>
+  </div>
+
 
 
 </div>
