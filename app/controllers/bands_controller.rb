@@ -1,5 +1,9 @@
 class BandsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: :home
+
+  def home
+    @bands = Band.all
+  end
 
   def index
     @bands = Band.all
