@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "bands#home"
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+
+  get 'bands/:genre', to: 'bands#index', as: :bands_by_genre
+
   resources :bands
-  # Defines the root path route ("/")
-  # root "articles#index"
 end
