@@ -1,21 +1,42 @@
+<div class="banner">
+  <div class="banner-inner">
+      <div class="band-info-head d-flex">
+        <div class="band-image-show">
+          <img src="<%= @band.image_url%>" alt="Photo of <%= @band.name %>">
+        </div>
+        <div class="band-name-show col-sm-6">
+          <h1><%= @band.name%></h1>
+          <h5>Genre: <%= @band.genre %></h5>
+          <h5>Price per night: £<%= @band.price_per_night%></h5>
+        </div>
+      </div>
+  </div>
+</div>
+
 <div class="container">
-  <div class="band-profile-card shadow rounded border rounded" stye="min-height: 50%;">
-    <div class="band-card-title">
+  <hr>
+  <p class="text-center">SOME INFORMATION ABOUT THE BAND GOES HERE!</p>
+  <hr>
+  <div class="row">
+    <div class="col-6">
+      <h5>REVIEWS</h5>
+      <hr>
+      <h5>UPCOMING SHOWS</h5>
+      <hr>
     </div>
-    <div class="row">
-      <div class="band-card-img col-6 text-center p-1">
-        <h1 class="text-center my-3"><%= @band.name %></h1>
-        <img src="" alt="A photo of <%= @band.name %>" class="my-3" style="min-height: 10rem">
-      </div>
-      <div class="col-6 container d-flex flex-column justify-content-between ">
-          <div class="genre-display">
-            <h5 class="text-center">Genre: <%= @band.genre %></h5>
-            <h5 class="text-center">Price Per Night: £<%= @band.price_per_night %></h5>
-          </div>
-          <div class="band-booking-info">
-            <h1>Booking Input To Go Here</h1>
-          </div>
-      </div>
+    <div class="col-6">
+      <h5>BAND INFO AND LINKS</h5>
+      <i class="fa-brands fa-facebook"></i>
+      <i class="fa-brands fa-instagram"></i>
+      <i class="fa-brands fa-soundcloud"></i>
+      <hr>
     </div>
+  </div>
+  <div>
+    <h3 class="text-center">BOOKING NOW</h3>
+      <div class="text-center">
+      <%= link_to "Check Availability", class: 'btn btn-primary text-center' %>
+      </div>
+    <hr>
   </div>
 </div>
