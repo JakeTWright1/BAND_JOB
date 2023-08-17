@@ -1,8 +1,17 @@
 class BandsController < ApplicationController
-  skip_before_action :authenticate_user!, only: :index
+  skip_before_action :authenticate_user!, only: :home
+  before_action :set_band, only: [:show]
+
+  def home
+    @bands = Band.all
+  end
+
 
   def index
     @bands = Band.all
+  end
+
+  def show
   end
 
   def new
@@ -21,6 +30,10 @@ class BandsController < ApplicationController
   private
 
   def band_params
-    params.require(:band).permit(:name, :genre, :price_per_night)
+    params.require(:band).permit(:name, :genre, :price_per_night, :image_url)
+  end
+
+  def set_band
+    @band = Band.find(params[:id])
   end
 end
