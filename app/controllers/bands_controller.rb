@@ -8,7 +8,11 @@ class BandsController < ApplicationController
 
 
   def index
-    @bands = Band.all
+    if params[:genre]
+      @bands = Band.where(genre: params[:genre])
+    else
+      @bands = Band.all
+    end
   end
 
   def show
