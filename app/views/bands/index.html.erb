@@ -1,22 +1,58 @@
-<!--Render Navbar Here -->
+
 <div class="container">
-    <h1 class="text-center">BandJob Listings</h1>
+  <h1 class="text-center mb-25">BandJob Listings</h1>
 
-  <!-- Page Content Here -->
-  <div class="d-flex flex-column">
-     <% @bands.each do |band| %>
-     <div class="card-product">
-      <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-      <div class="d-flex flex-column">
-        <div class="p-2 card-product-infos"><h2><%= band.name %></h2></div>
-        <div>£<%= band.price_per_night %> per night</div>
-      </div>
+  <div class="row">
+
+    <div class="col-6">
+
+      <% @bands.each do |band| %>
+          <div class="card-product">
+
+          <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
+
+
+
+              <div class="ml-5 mr-50px d-flex flex-column">
+
+
+                  <div class="p-2 card-product-infos"><h2><%= band.name %></h2></div>
+                  <p class="p-2 card-product-infos">£<%= band.price_per_night %>/night</p>
+
+              </div>
+
+               <div class="d-flex flex-column">
+
+                  <%= link_to band_path(band), class: "p-2" do %>
+                  <button type="button" class="btn btn-outline-secondary p-2">View</button>
+                  <% end %>
+              </div>
+
+          </div>
+      <% end %>
     </div>
-     <% end %>
+
+    <div class="col-6">
+
+
+
+          <div id='map' style='width: 400px; height: 80%;'></div>
+
+
+
+
+
+
+    </div>
+
   </div>
-
-
-
 </div>
 
-<!-- Render Footer Here -->
+
+<script>
+  mapboxgl.accessToken = 'pk.eyJ1IjoiY2hyaXN0aWFucm8iLCJhIjoiY2xqcmdudWhjMDc3eTNucGMzaHEzcTV2cSJ9.EdpRLxCi2MZiEfpJBVE6iQ';
+  var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/mapbox/streets-v11'
+  });
+</script>
