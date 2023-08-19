@@ -1,0 +1,16 @@
+.main-container {
+  display: flex;
+  margin: 10px auto;
+}
+
+#map {
+  height: 100vh;
+  position: sticky;
+}
+
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr ;
+  grid-gap: 10px;
+  margin-left: 20px;
+}

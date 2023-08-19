@@ -1,55 +1,40 @@
-
-<div class="container">
-  <h1 class="text-center mb-25">BandJob Listings</h1>
-
-  <div class="row">
-
-    <div class="col-6">
-
-      <% @bands.each do |band| %>
-          <div class="card-product">
-
-
-           <%= image_tag band.image_url %>
-          <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
-
-
-
-              <div class="ml-5 mr-50px d-flex flex-column">
-
-
-                  <div class="p-2 card-product-infos"><h2><%= band.name %></h2></div>
-                  <p class="p-2 card-product-infos">£<%= band.price_per_night %>/night</p>
-
-              </div>
-
-               <div class="d-flex flex-column">
-
-                  <%= link_to band_path(band), class: "p-2" do %>
-                  <button type="button" class="btn btn-outline-secondary p-2">View</button>
-                  <% end %>
-              </div>
-
+<div class="current-banner">
+  <div class="reused-banner-inner">
+    <h1>Current Listings</h1>
+  </div>
+  <hr>
+</div>
+<hr>
+<div class="main-container">
+<hr>
+  <div class="cards col-7">
+    <% @bands.each do |band| %>
+      <div class="card-product shadow border col-2">
+        <%= image_tag band.image_url %>
+        <div class="ml-5 mr-50px d-flex">
+          <div class="p-2 card-product-infos">
+            <h2><%= band.name %></h2>
+            <p class="p-2 card-product-infos text-center">£<%= band.price_per_night %></p>
           </div>
-      <% end %>
-    </div>
-
-    <div class="col-6">
-
-
-
-          <div id='map' style='width: 400px; height: 80%;'></div>
-
-
-
-
-
-
-    </div>
-
+          <div class="d-flex flex-column justify-content-center text-center">
+            <%= link_to band_path(band), class: "p-2" do %>
+            <button type="button" class="btn btn-outline-secondary p-2">View</button>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="col-5">
+    <div id='map' style='width: 400px; height: 80%;'></div>
   </div>
 </div>
-
+<%#
+    <div class="col-6">
+          <div id='map' style='width: 400px; height: 80%;'></div>
+    </div>
+  </div>
+</div> %>
 
 <script>
   mapboxgl.accessToken = 'pk.eyJ1IjoiY2hyaXN0aWFucm8iLCJhIjoiY2xqcmdudWhjMDc3eTNucGMzaHEzcTV2cSJ9.EdpRLxCi2MZiEfpJBVE6iQ';
