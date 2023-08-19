@@ -1,0 +1,26 @@
+<div class="banner">
+  <div class="banner-inner">
+    <h1>My Bookings:</h1>
+    <hr>
+    <h3>There are currently <%= @bookings.count %> bookings</h3>
+  </div>
+</div>
+
+<div class="container">
+  <% if @bookings.empty? %>
+    <div class="text-center">
+    <h2>You don't have any bookings <i class="fa-regular fa-face-frown-open"></i></h2>
+    <%= link_to "Browse Listings", bands_path, class: 'btn btn-primary' %>
+    </div>
+  <% else %>
+    <% @bookings.each do |booking| %>
+      <div class="card shadow">
+        <h3><%= @booking.band.name %></h3>
+        <p><%= @booking.start_date %> - <%= @booking.end_date %></p>
+        <br>
+        <p><%= @booking.total_price %></p>
+
+      </div>
+    <% end %>
+  <% end %>
+</div>
