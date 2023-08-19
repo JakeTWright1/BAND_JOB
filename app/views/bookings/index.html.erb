@@ -10,6 +10,7 @@
   <% if @bookings.empty? %>
     <div class="text-center">
     <h2>You don't have any bookings <i class="fa-regular fa-face-frown-open"></i></h2>
+    <hr>
     <%= link_to "Browse Listings", bands_path, class: 'btn btn-primary' %>
     </div>
   <% else %>
