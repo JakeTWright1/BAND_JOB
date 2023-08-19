@@ -4,6 +4,10 @@ class BookingsController < ApplicationController
     @booking = Booking.new
   end
 
+  def index
+    @bookings = Booking.where(user: current_user)
+  end
+
   def create
     @booking = Booking.new(booking_params)
     @booking.user = current_user
