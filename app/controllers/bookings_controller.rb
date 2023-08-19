@@ -31,6 +31,6 @@ def calculate_total_price(start_date, end_date, price_per_night)
     @booking.band.price_per_night
   else
     number_of_nights = (end_date.to_date - start_date.to_date).to_i
-    number_of_nights >= 0 ? number_of_nights * price_per_night : 0
+    number_of_nights >= 0 ? (number_of_nights * price_per_night) + price_per_night : 0
   end
 end
