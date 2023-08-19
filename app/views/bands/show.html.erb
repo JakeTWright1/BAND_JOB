@@ -49,8 +49,8 @@
   </div>
   <div>
     <h3 class="text-center">BOOK NOW</h3>
-      <div class="text-center">
-      <%= simple_form_for @booking, :url => user_bookings_path(current_user), data: { controller: 'flatpickr'} do |f| %>
+      <div class="text-center" data-controller="test">
+      <%= simple_form_for [@band, @booking] do |f| %>
         <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startDate" } } %>
         <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endDate" } } %>
         <%= f.submit 'Book' %>
