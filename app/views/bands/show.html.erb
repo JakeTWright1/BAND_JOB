@@ -40,6 +40,22 @@
       <hr>
     </div>
     <div class="col-6">
+
+     <div>
+    <h3 class="text-center">BOOK NOW</h3>
+
+     <%= simple_form_for [@band, @booking] do |f| %>
+      <%= f.input :start_date, as: :date %>
+      <%= f.input :end_date, as: :date %>
+      <%= f.submit 'Book' %>
+    <% end %>
+
+    <hr>
+  </div>
+</div>
+
+
+
       <h5>BAND INFO AND LINKS</h5>
       <i class="fa-brands fa-facebook"></i>
       <i class="fa-brands fa-instagram"></i>
@@ -47,15 +63,3 @@
       <hr>
     </div>
   </div>
-  <div>
-    <h3 class="text-center">BOOK NOW</h3>
-      <div class="text-center" data-controller="test">
-      <%= simple_form_for [@band, @booking] do |f| %>
-        <%= f.input :start_date, as: :string, input_html: { data: { flatpickr_target: "startDate" } } %>
-        <%= f.input :end_date, as: :string, input_html: { data: { flatpickr_target: "endDate" } } %>
-        <%= f.submit 'Book' %>
-      <% end %>
-      </div>
-    <hr>
-  </div>
-</div>
