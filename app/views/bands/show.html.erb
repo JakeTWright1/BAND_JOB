@@ -6,7 +6,7 @@
         </div>
         <div class="band-name-show col-sm-6">
           <h1><%= @band.name%></h1>
-          <h5>Genre: <%= @band.genre %></h5>
+          <h5>Genre: <%= @band.genre.capitalize %></h5>
           <h5>Price per night: £<%= @band.price_per_night%></h5>
         </div>
       </div>
@@ -24,14 +24,18 @@
         <h5 class="text-center">There are no reviews</h5>
       <% else %>
         <% @reviews.each do |review| %>
-          <div class="card shadow">
-            <h3><%= review.rating %></h3>
-            <p><%= review.content %></p>
+          <div class="card shadow" id="review-card">
+            <ul class="list-group list-group-horizontal-md mx-2">
+              <% review.rating.times do %>
+                <li><i class="fa-regular fa-star"></i></li>
+              <% end %>
+            </ul>
+            <p class="mx-2"><em>"<%= review.content %>"</em></p>
           </div>
         <% end %>
       <% end %>
       <%= simple_form_for @review, {url: band_reviews_path(@band)} do |f| %>
-        <%= f.input :content %>
+        <%= f.input :content, label: "Leave a Review:", placeholder: 'Write your review here ...' %>
         <%= f.input :rating, input_html: {min: 0, max: 5, step: 1} %>
         <%= f.submit%>
       <% end %>
