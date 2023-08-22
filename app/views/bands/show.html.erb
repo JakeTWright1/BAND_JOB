@@ -34,11 +34,13 @@
           </div>
         <% end %>
       <% end %>
-      <%= simple_form_for @review, {url: band_reviews_path(@band)} do |f| %>
-        <%= f.input :content, label: "Leave a Review:", placeholder: 'Write your review here ...' %>
-        <%= f.input :rating, input_html: {min: 0, max: 5, step: 1} %>
-        <%= f.submit%>
-      <% end %>
+      <div class="review-form shadow">
+        <%= simple_form_for @review, {url: band_reviews_path(@band)} do |f| %>
+          <%= f.input :content, label: "Leave a Review:", placeholder: 'Write your review here ...' %>
+          <%= f.input :rating, input_html: {min: 0, max: 5, step: 1} %>
+          <p class="text-center"><%= f.submit%></p>
+        <% end %>
+      </div>
       <hr>
       <div class="p-2 text-center">
           <h5>BAND INFO AND LINKS</h5>
@@ -63,6 +65,17 @@
       </div>
       <div class="p-1 text-center">
         <h3>UPCOMING SHOWS</h3>
+          <% if @bookings.empty? %>
+            <div>
+              <h2>There are no upcoming shows</h2>
+            </div>
+          <% else %>
+            <% @bookings.each do |booking| %>
+              <div class="card shadow">
+                <h3><%= booking.start_date.strftime('%d-%m-%Y') %> - <%= booking.end_date.strftime('%d-%m-%Y') %></h3>
+              </div>
+            <% end %>
+          <% end %>
       </div>
     </div>
   </div>
