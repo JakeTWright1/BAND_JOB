@@ -5,28 +5,24 @@
   <hr>
 </div>
 <hr>
-<div class="main-container">
-<hr>
-  <div class="cards col-7">
-    <% @bands.each do |band| %>
-      <div class="card-product shadow border col-2">
-        <%= image_tag band.image_url %>
-        <div class="ml-5 mr-50px d-flex">
-          <div class="p-2 card-product-infos">
-            <h2><%= band.name %></h2>
-            <p class="p-2 card-product-infos text-center">£<%= band.price_per_night %></p>
-          </div>
-          <div class="d-flex flex-column justify-content-center text-center">
-            <%= link_to band_path(band), class: "p-2" do %>
-            <button type="button" class="btn btn-outline-secondary p-2">View</button>
-            <% end %>
+<div class="container">
+    <div class="flex-item cards">
+      <% @bands.each do |band| %>
+        <div class="card-product shadow border">
+          <%= image_tag band.image_url %>
+          <div class="ml-5 mr-50px d-flex flex-fill justify-content-evenly">
+            <div class="p-2 card-product-infos">
+              <h2><%= band.name %></h2>
+              <p class="p-2 card-product-infos text-center">£<%= band.price_per_night %></p>
+            </div>
+            <div class="d-flex flex-column justify-content-center text-center">
+              <%= link_to band_path(band), class: "p-2" do %>
+              <button type="button" class="btn btn-outline-secondary p-2">View</button>
+              <% end %>
+            </div>
           </div>
         </div>
-      </div>
-    <% end %>
-  </div>
-  <div class="col-5">
-    <div id='map' style='width: 400px; height: 80%;'></div>
+      <% end %>
   </div>
 </div>
 <%#
