@@ -11,7 +11,7 @@ Band.destroy_all
 
 puts "Adding bands to database"
 
-Band.create(name: "Katy Perry", genre: "pop", price_per_night: 55, image_url: "https://backstage.officialcharts.com/sites/default/files/legacy_images/media/660459/katyperry_roar.jpeg")
+Band.create!(name: "Katy Perry", genre: "pop", price_per_night: 55, image_url: "https://backstage.officialcharts.com/sites/default/files/legacy_images/media/660459/katyperry_roar.jpeg")
 Band.create(name: "Nirvana", genre: "rock", price_per_night: 25, image_url: "https://singersroom.com/wp-content/uploads/2023/05/The-Best-Nirvana-Songs.jpg")
 Band.create(name: "Daft Punk", genre: "electronic", price_per_night: 46, image_url: "https://mixmag.net/assets/uploads/images/_columns2/daft-punk-film-score-dario-argento.jpg")
 Band.create(name: "Sex Pistols", genre: "punk", price_per_night: 80, image_url: "https://www.telegraph.co.uk/content/dam/music/2022/06/03/TELEMMGLPICT000225528385_trans_NvBQzQNjv4Bq484RXonT_19Z7JN5F4m0Vojbxav8FrUFV_7NDlqF-p8.jpeg")
