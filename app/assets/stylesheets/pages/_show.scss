@@ -27,3 +27,25 @@
   align-items: center;
   justify-content: space-between;
 }
+
+#review-card {
+  padding: 5px;
+  margin: 10px 0;
+  background-color: #f97676;
+  color: white;
+  border-radius: 3px;
+}
+
+.fa-brands {
+  font-size: 80px;
+  margin: 10px 20px;
+}
+
+.logo-display {
+  display: flex;
+  justify-content: space-between;
+}
+
+ul {
+  list-style-type: none;
+}

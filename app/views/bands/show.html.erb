@@ -6,7 +6,7 @@
         </div>
         <div class="band-name-show col-sm-6">
           <h1><%= @band.name%></h1>
-          <h5>Genre: <%= @band.genre %></h5>
+          <h5>Genre: <%= @band.genre.capitalize %></h5>
           <h5>Price per night: £<%= @band.price_per_night%></h5>
         </div>
       </div>
@@ -24,42 +24,46 @@
         <h5 class="text-center">There are no reviews</h5>
       <% else %>
         <% @reviews.each do |review| %>
-          <div class="card shadow">
-            <h3><%= review.rating %></h3>
-            <p><%= review.content %></p>
+          <div class="card shadow" id="review-card">
+            <ul class="list-group list-group-horizontal-md mx-2">
+              <% review.rating.times do %>
+                <li><i class="fa-regular fa-star"></i></li>
+              <% end %>
+            </ul>
+            <p class="mx-2"><em>"<%= review.content %>"</em></p>
           </div>
         <% end %>
       <% end %>
       <%= simple_form_for @review, {url: band_reviews_path(@band)} do |f| %>
-        <%= f.input :content %>
+        <%= f.input :content, label: "Leave a Review:", placeholder: 'Write your review here ...' %>
         <%= f.input :rating, input_html: {min: 0, max: 5, step: 1} %>
         <%= f.submit%>
       <% end %>
       <hr>
-      <h5>UPCOMING SHOWS</h5>
+      <div class="p-2 text-center">
+          <h5>BAND INFO AND LINKS</h5>
+          <div class="logo-dispay">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-soundcloud"></i>
+            <hr>
+          </div>
+      </div>
       <hr>
     </div>
-    <div class="col-6">
-
-     <div>
-    <h3 class="text-center">BOOK NOW</h3>
-
-     <%= simple_form_for [@band, @booking] do |f| %>
-      <%= f.input :start_date, as: :date %>
-      <%= f.input :end_date, as: :date %>
-      <%= f.submit 'Book' %>
-    <% end %>
-
-    <hr>
+    <div class="col-6 shadow p-1">
+      <div class="p-2">
+        <h3 class="text-center">BOOK NOW</h3>
+        <%= simple_form_for [@band, @booking] do |f| %>
+          <%= f.input :start_date, as: :date %>
+          <%= f.input :end_date, as: :date %>
+          <p class="text-center"><%= f.submit 'Book', class: 'btn btn-primary' %></p>
+        <% end %>
+        <hr>
+      </div>
+      <div class="p-1 text-center">
+        <h3>UPCOMING SHOWS</h3>
+      </div>
+    </div>
   </div>
 </div>
-
-
-
-      <h5>BAND INFO AND LINKS</h5>
-      <i class="fa-brands fa-facebook"></i>
-      <i class="fa-brands fa-instagram"></i>
-      <i class="fa-brands fa-soundcloud"></i>
-      <hr>
-    </div>
-  </div>
