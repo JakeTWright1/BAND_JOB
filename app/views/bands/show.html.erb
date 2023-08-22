@@ -40,30 +40,30 @@
         <%= f.submit%>
       <% end %>
       <hr>
-      <h5>UPCOMING SHOWS</h5>
+      <div class="p-2 text-center">
+          <h5>BAND INFO AND LINKS</h5>
+          <div class="logo-dispay">
+            <i class="fa-brands fa-facebook"></i>
+            <i class="fa-brands fa-instagram"></i>
+            <i class="fa-brands fa-soundcloud"></i>
+            <hr>
+          </div>
+      </div>
       <hr>
     </div>
-    <div class="col-6">
-
-     <div>
-    <h3 class="text-center">BOOK NOW</h3>
-
-     <%= simple_form_for [@band, @booking] do |f| %>
-      <%= f.input :start_date, as: :date %>
-      <%= f.input :end_date, as: :date %>
-      <%= f.submit 'Book' %>
-    <% end %>
-
-    <hr>
+    <div class="col-6 shadow p-1">
+      <div class="p-2">
+        <h3 class="text-center">BOOK NOW</h3>
+        <%= simple_form_for [@band, @booking] do |f| %>
+          <%= f.input :start_date, as: :date %>
+          <%= f.input :end_date, as: :date %>
+          <p class="text-center"><%= f.submit 'Book', class: 'btn btn-primary' %></p>
+        <% end %>
+        <hr>
+      </div>
+      <div class="p-1 text-center">
+        <h3>UPCOMING SHOWS</h3>
+      </div>
+    </div>
   </div>
 </div>
-
-
-
-      <h5>BAND INFO AND LINKS</h5>
-      <i class="fa-brands fa-facebook"></i>
-      <i class="fa-brands fa-instagram"></i>
-      <i class="fa-brands fa-soundcloud"></i>
-      <hr>
-    </div>
-  </div>
