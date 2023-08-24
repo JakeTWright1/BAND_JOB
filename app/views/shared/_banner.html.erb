@@ -4,6 +4,18 @@
     <p>Find and book bands in your local area</p>
     <div class="mt-50">
     <%= link_to "Explore", bands_path, class: "btn btn-outline-light" %>
+    <div class="row justify-content-center">
+  <div class="col-sm-8 position-absolute top-100 start-50 translate-middle">
+    <%= form_with url: bands_path, method: :get, class: "d-flex" do %>
+      <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Genre of music"
+        %>
+      <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+</div>
     </div>
   </div>
 </div>
