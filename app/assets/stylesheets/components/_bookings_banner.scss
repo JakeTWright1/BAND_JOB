@@ -18,8 +18,8 @@
 
 .reused-banner-inner {
   width: 1000px;
-	margin-left: auto;
-	margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .reused-banner-inner > h1 {
@@ -30,4 +30,13 @@
 .band-name-show > h1 {
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
   color: white;
+}
+
+.bookings-image {
+  height: 250px;
+  object-fit: cover;
+}
+
+.card-inner {
+  padding: 50px;
 }
