@@ -58,6 +58,7 @@
         <%= simple_form_for [@band, @booking] do |f| %>
           <%= f.input :start_date, as: :date %>
           <%= f.input :end_date, as: :date %>
+          <%= f.association :venue, collection: Venue.all %>
           <p class="text-center"><%= f.submit 'Book', class: 'btn btn-primary' %></p>
         <% end %>
         <hr>
