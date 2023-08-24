@@ -8,8 +8,8 @@ class BandsController < ApplicationController
 
 
   def index
-    if params[:genre]
-      @bands = Band.where(genre: params[:genre])
+    if params[:query].present?
+      @bands = Band.where(genre: params[:query])
     else
       @bands = Band.all
     end
