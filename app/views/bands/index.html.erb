@@ -1,11 +1,20 @@
 <div class="current-banner">
   <div class="reused-banner-inner">
-    <h1>Current Listings</h1>
+<h1>Current Listings</h1>
+
   </div>
   <hr>
 </div>
 <hr>
 <div class="container">
+
+<div style="text-align:right;margin-top: 16px;margin-bottom: 16px;" class="mt-50">
+<%= form_tag bands_path, class: "p-50", method: :get do %>
+  <%= select_tag :genre, options_for_select([["All", ""]] + @genres.map { |genre| [genre, genre] }, selected: @selected_genre), include_blank: true %>
+  <%= submit_tag 'Filter by genre', class: "btn btn-secondary btn-sm ml-15" %>
+<% end %>
+</div>
+
     <div class="flex-item cards">
       <% @bands.each do |band| %>
         <div class="card-product shadow border">
@@ -31,5 +40,3 @@
     </div>
   </div>
 </div> %>
-
-

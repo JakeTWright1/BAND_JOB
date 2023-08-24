@@ -8,8 +8,8 @@
 
 .banner-inner {
   width: 1000px;
-	margin-left: auto;
-	margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .band-image-show > img {
@@ -17,6 +17,7 @@
   width: 300px;
   height: 200px;
   border-radius: 8px;
+  object-fit: cover;
 }
 
 .band-image-show {
