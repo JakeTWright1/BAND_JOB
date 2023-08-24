@@ -1,12 +1,16 @@
-<div class="reused-banner">
+
+
+<div class="current-banner">
   <div class="reused-banner-inner">
     <h1>My Bookings:</h1>
     <hr>
     <h3>There are currently <%= @bookings.count %> bookings</h3>
   </div>
 </div>
-
 <div class="container">
+
+
+
   <% if @bookings.empty? %>
     <div class="text-center">
     <h2>You don't have any bookings <i class="fa-regular fa-face-frown-open"></i></h2>
@@ -14,14 +18,20 @@
     <%= link_to "Browse Listings", bands_path, class: 'btn btn-primary' %>
     </div>
   <% else %>
+   <div class="cards-booking">
     <% @bookings.each do |booking| %>
+
       <div class="card shadow">
+         <%= image_tag booking.band.image_url , class: 'bookings-image' %>
+         <div class="card-inner">
         <h3><%= booking.band.name %></h3>
-        <p><%= booking.start_date %> - <%= booking.end_date %></p>
+        <p>Booking: <%= booking.start_date.strftime('%d-%m-%Y') %> - <%= booking.end_date.strftime('%d-%m-%Y') %></p>
         <br>
         <p>Total Price: £<%= booking.total_price %></p>
-
+        </div>
       </div>
     <% end %>
   <% end %>
+
+  </div>
 </div>

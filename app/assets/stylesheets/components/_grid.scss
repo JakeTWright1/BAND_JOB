@@ -10,7 +10,18 @@
 
 .cards {
   display: grid;
+
+  grid-template-columns: 1fr 1fr 1fr;
+
+  grid-gap: 10px;
+  margin-left: 20px;
+}
+
+.cards-booking {
+  display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-gap: 10px;
   margin-left: 20px;
+  margin-top: 50px;
+  margin-bottom: 50px;
 }
