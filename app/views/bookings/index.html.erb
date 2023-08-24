@@ -4,7 +4,11 @@
   <div class="reused-banner-inner">
     <h1>My Bookings:</h1>
     <hr>
-    <h3>There are currently <%= @bookings.count %> bookings</h3>
+    <% if @bookings.empty? %>
+      <h3>You have no upcoming bookings!</h3>
+    <% else %>
+      <h3>You have <%= @bookings.count %> upcoming bookings</h3>
+    <% end %>
   </div>
 </div>
 <div class="container">
@@ -25,9 +29,13 @@
          <%= image_tag booking.band.image_url , class: 'bookings-image' %>
          <div class="card-inner">
         <h3><%= booking.band.name %></h3>
-        <p>Booking: <%= booking.start_date.strftime('%d-%m-%Y') %> - <%= booking.end_date.strftime('%d-%m-%Y') %></p>
-        <br>
-        <p>Total Price: £<%= booking.total_price %></p>
+        <p>Booking:</p>
+        <p><%= booking.start_date.strftime('%d-%m-%Y') %> - <%= booking.end_date.strftime('%d-%m-%Y') %></p>
+        <p><strong>Playing at:</strong></p>
+        <p><%= booking.venue.name %></p>
+        <p><%= booking.venue.address %></p>
+        <p><strong>Total Price:</strong> £<%= booking.total_price %></p>
+        <%= button_to "Cancel Booking", booking_path(booking), method: :delete, class: 'btn btn-danger' %>
         </div>
       </div>
     <% end %>
