@@ -6,13 +6,16 @@ class BandsController < ApplicationController
     @bands = Band.all
   end
 
-
   def index
+    @genres = Band.pluck(:genre).uniq
+    @selected_genre = params[:genre]
     if params[:query].present?
       @bands = Band.where(genre: params[:query])
-    else
-      @bands = Band.all
-    end
+    elsif  @selected_genre.present?
+              @bands = Band.where(genre: @selected_genre)
+                else
+              @bands = Band.all
+                end
   end
 
   def show
