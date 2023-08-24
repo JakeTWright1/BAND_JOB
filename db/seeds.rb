@@ -8,8 +8,9 @@
 
 puts "Clearing the database"
 Band.destroy_all
+Venue.destroy_all
 
-puts "Adding bands to database"
+puts "Adding bands and venues to database"
 
 Band.create!(name: "Katy Perry", genre: "pop", price_per_night: 55, image_url: "https://backstage.officialcharts.com/sites/default/files/legacy_images/media/660459/katyperry_roar.jpeg")
 Band.create(name: "Nirvana", genre: "rock", price_per_night: 25, image_url: "https://singersroom.com/wp-content/uploads/2023/05/The-Best-Nirvana-Songs.jpg")
@@ -29,5 +30,16 @@ Band.create(name: "Pablo Bozzi", genre: "electronic", price_per_night: 46, image
 Band.create(name: "Green Day", genre: "punk", price_per_night: 80, image_url: "https://i.guim.co.uk/img/media/55760e085efd29851aaa9039781334c63e478c85/0_300_4500_2700/master/4500.jpg?width=1200&height=1200&quality=85&auto=format&fit=crop&s=e4900fb962c83b5e2f0c1f904985a55c")
 Band.create(name: "Sister Sledge", genre: "disco", price_per_night: 399, image_url: "https://photos.bandsintown.com/large/14727257.jpeg")
 
+Venue.create(name: "O2 Brixton Academy", address: "211 Stockwell Rd, London SW9 9SL")
+Venue.create(name: "Hollywood Forever Cemetery", address: "6000 Santa Monica Blvd, Los Angeles, CA 90038, United States")
+Venue.create(name: "The Hacienda", address: "Whitworth Street West, Manchester")
+Venue.create(name: "Sydney Opera House", address: "Bennelong Point, Sydney NSW 2000, Australia")
+Venue.create(name: "The Shacklewell Arms", address: "71 Shacklewell Ln, London E8 2EB")
+Venue.create(name: "Madison Square Garden", address: "4 Pennsylvania Plaza, New York, NY 10001, United States")
+Venue.create(name: "The Roundhouse", address: "Chalk Farm Rd, Chalk Farm, London NW1 8EH")
+Venue.create(name: "Alexandra Palace", address: "Alexandra Palace, Alexandra Palace Way, London N22 7AY")
+Venue.create(name: "The Windmill", address: "22 Blenheim Gardens, Brixton Hill, London SW2 5BZ")
 
 puts "Finished!"
+
+puts
