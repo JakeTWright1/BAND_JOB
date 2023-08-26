@@ -9,14 +9,14 @@ class BandsController < ApplicationController
   def index
     @genres = Band.pluck(:genre).uniq
     @selected_genre = params[:genre]
-    if params[:query].present?
-        sql_subquery = "genre ILIKE :query OR name ILIKE :query"
-      @bands = Band.where(genre: params[:query])
-    elsif @selected_genre.present?
-      @bands = Band.where(genre: @selected_genre)
-    else
-      @bands = Band.all
-    end
+      if params[:query].present?
+     sql_subquery = "genre ILIKE :query OR name ILIKE :query"
+    @bands = Band.where(sql_subquery, query: "%#{params[:query]}%")
+      elsif  @selected_genre.present?
+        @bands = Band.where(genre: @selected_genre)
+      else
+        @bands = Band.all
+      end
   end
 
   def show
