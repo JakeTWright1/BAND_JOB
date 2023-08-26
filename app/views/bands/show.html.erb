@@ -72,7 +72,17 @@
           <% else %>
             <% @bookings.each do |booking| %>
               <div class="card shadow">
-                <h3><%= booking.start_date.strftime('%d-%m-%Y') %> - <%= booking.end_date.strftime('%d-%m-%Y') %></h3>
+
+                <p><strong>Playing at:</strong></p>
+                <p><%= booking.venue.name %></p>
+                <p><%= booking.venue.address %></p>
+
+              <% if booking.start_date != booking.end_date %>
+                 <h3><%= booking.start_date.strftime('%d-%m-%Y') %> - <%= booking.end_date.strftime('%d-%m-%Y') %></h3>
+              <% else %>
+              <h3><%= booking.start_date.strftime('%d-%m-%Y') %></h3>
+              <% end  %>
+
               </div>
             <% end %>
           <% end %>
