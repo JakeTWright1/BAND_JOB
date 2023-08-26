@@ -8,6 +8,14 @@
 <hr>
 <div class="container">
 
+<% if @bands.empty? %>
+    <div class="text-center">
+    <h2>Sorry, there are no results for your query <i class="fa-regular fa-face-kiss-beam"></i></h2>
+    <hr>
+    <%= link_to "Browse Listings", bands_path, class: 'btn btn-primary' %>
+    </div>
+  <% else %>
+
 <div style="text-align:right;margin-top: 16px;margin-bottom: 16px;" class="mt-50">
 <%= form_tag bands_path, class: "p-50", method: :get do %>
   <%= select_tag :genre, options_for_select([["All", ""]] + @genres.map { |genre| [genre, genre] }, selected: @selected_genre), include_blank: true %>
@@ -32,6 +40,7 @@
           </div>
         </div>
       <% end %>
+       <% end %>
   </div>
 </div>
 <%#
