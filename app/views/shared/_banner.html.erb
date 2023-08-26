@@ -1,11 +1,8 @@
-<div class="banner-hp" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.cartridgepeople.com/info/application/files/1316/1478/7917/downloadable_music_gig_crowd_thumbnail.png);">
+<div class="banner-hp z-0 position-relative" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://www.cartridgepeople.com/info/application/files/1316/1478/7917/downloadable_music_gig_crowd_thumbnail.png);">
   <div class="container">
-    <h1> Putting <strong>music</strong> within <strong>your grasp </strong></h1>
-    <p>Find and book bands in your local area</p>
-    <div class="mt-50">
-    <%= link_to "Explore", bands_path, class: "btn btn-outline-light" %>
-    <div class="row justify-content-center">
-  <div class="col-sm-8 position-absolute top-100 start-50 translate-middle">
+
+  <div class="row justify-content-center z-1 position-relative">
+    <div class="col-sm-8 position-absolute top-100 start-50 translate-middle">
     <%= form_with url: bands_path, method: :get, class: "d-flex" do %>
       <%= text_field_tag :query,
             params[:query],
@@ -14,8 +11,23 @@
         %>
       <%= submit_tag "Search", name: "", class: "btn btn-primary" %>
     <% end %>
-  </div>
-</div>
     </div>
+    </div>
+
+    <div class="position-relative" style="margin-top:100px">
+
+    <h1> Putting <strong>music</strong> within <strong>your grasp </strong></h1>
+    <p>Find and book bands in your local area</p>
+
+    <div class="mt-50">
+    <%= link_to "Explore", bands_path, class: "btn btn-outline-light" %>
+
   </div>
+
+    </div>
+
+
+  </div>
+
+
 </div>
